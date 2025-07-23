@@ -48,78 +48,168 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- Detalles mejor organizados -->
         <div class="col-lg-6">
-          <div class="card border-0 shadow-sm h-100">
-            <div class="card-body p-4">
-              <div class="d-flex justify-content-between align-items-start mb-3">
-                <div>
-                  <h1 class="h3 fw-bold mb-2">${juego.nombre}</h1>
-                  <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
-                    <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">${juego.genero || "Acción"}</span>
-                    <span class="badge bg-secondary bg-opacity-10 text-secondary py-2 px-3">${juego.plataforma || "PC"}</span>
-                  </div>
-                </div>
-                <div class="text-end">
-                  <div class="h4 text-success fw-bold mb-1">$${juego.precio.toFixed(2)}</div>
-                  <div class="text-warning small">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                    <span class="text-muted ms-1">4.5</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-4">
-                <h3 class="h5 fw-bold mb-2">Descripción</h3>
-                <p class="mb-0 text-muted" style="line-height: 1.6;">${juego.descripcion}</p>
-              </div>
-
-              <div class="mb-4">
-                <h3 class="h5 fw-bold mb-3">Detalles del juego</h3>
-                <div class="row g-2 small">
-                  <div class="col-md-6">
-                    <div class="d-flex align-items-center mb-2">
-                      <i class="bi bi-translate me-2 text-primary" style="width: 24px; text-align: center;"></i>
-                      <div>
-                        <strong>Idiomas:</strong> Español, Inglés
-                      </div>
+            <div class="card border-0 h-100" style="box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+              <div class="card-body p-4">
+                <!-- Encabezado con título y precio -->
+                <div class="d-flex justify-content-between align-items-start mb-4">
+                  <div>
+                    <h1 class="h2 fw-bold mb-2" style="color: #2c3e50;">${juego.nombre}</h1>
+                    <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                      <span class="badge bg-primary bg-opacity-15 text-primary py-2 px-3 rounded-pill">
+                        <i class="bi bi-controller me-1"></i> ${juego.genero}
+                      </span>
+                      <span class="badge bg-secondary bg-opacity-15 text-secondary py-2 px-3 rounded-pill">
+                        <i class="bi bi-laptop me-1"></i> ${juego.plataforma}
+                      </span>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="d-flex align-items-center mb-2">
-                      <i class="bi bi-people-fill me-2 text-primary" style="width: 24px; text-align: center;"></i>
-                      <div>
-                        <strong>Clasificación:</strong> +12
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="d-flex align-items-center mb-2">
-                      <i class="bi bi-calendar3 me-2 text-primary" style="width: 24px; text-align: center;"></i>
-                      <div>
-                        <strong>Lanzamiento:</strong> ${juego.fechaLanzamiento || "2023"}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="d-flex align-items-center mb-2">
-                      <i class="bi bi-file-earmark-text me-2 text-primary" style="width: 24px; text-align: center;"></i>
-                      <div>
-                        <strong>Tamaño:</strong> 45GB
-                      </div>
+                  <div class="text-end">
+                    <div class="h3 fw-bold mb-1" style="color: #27ae60;">$${juego.precio.toFixed(2)}</div>
+                    <div class="rating-container">
+                      <div class="stars" style="--rating: 4.5;"></div>
+                      <span class="text-muted small ms-2">4.5/5.0</span>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="mt-auto pt-2">
-                <button class="btn btn-primary w-100 py-2 fw-bold rounded-pill"
-                        onclick='agregarAlCarrito(${JSON.stringify(juego)}); actualizarContadorCarrito(); renderCarritoFlotante(); mostrarToast("Agregado al carrito")'>
-                  <i class="bi bi-cart-plus-fill me-2"></i>Añadir al carrito
-                </button>
+                <!-- Descripción con scroll si es muy larga -->
+                <div class="mb-4">
+                  <h3 class="h5 fw-bold mb-3" style="color: #34495e;">
+                    <i class="bi bi-card-text me-2"></i>Descripción
+                  </h3>
+                  <div class="description-scroll" style="max-height: 150px; overflow-y: auto;">
+                    <p class="mb-0" style="color: #7f8c8d; line-height: 1.7;">${juego.descripcion}</p>
+                  </div>
+                </div>
+
+                <!-- Detalles del juego en formato de lista mejorada -->
+                <div class="mb-4">
+                  <h3 class="h5 fw-bold mb-3" style="color: #34495e;">
+                    <i class="bi bi-info-circle me-2"></i>Detalles del juego
+                  </h3>
+                  <div class="game-details-grid">
+                    <div class="detail-item">
+                      <div class="detail-icon bg-primary bg-opacity-10">
+                        <i class="bi bi-translate text-primary"></i>
+                      </div>
+                      <div>
+                        <div class="detail-label">Idiomas</div>
+                        <div class="detail-value">Español, Inglés</div>
+                      </div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-icon bg-primary bg-opacity-10">
+                        <i class="bi bi-people-fill text-primary"></i>
+                      </div>
+                      <div>
+                        <div class="detail-label">Clasificación</div>
+                        <div class="detail-value">+12</div>
+                      </div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-icon bg-primary bg-opacity-10">
+                        <i class="bi bi-calendar3 text-primary"></i>
+                      </div>
+                      <div>
+                        <div class="detail-label">Lanzamiento</div>
+                        <div class="detail-value">${juego.fechaLanzamiento || "2023"}</div>
+                      </div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-icon bg-primary bg-opacity-10">
+                        <i class="bi bi-file-earmark-text text-primary"></i>
+                      </div>
+                      <div>
+                        <div class="detail-label">Tamaño</div>
+                        <div class="detail-value">45GB</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Botón de compra mejorado -->
+                <div class="mt-4 pt-2">
+                  <button class="btn btn-primary w-100 py-3 fw-bold rounded-pill add-to-cart-btn"
+                          onclick='agregarAlCarrito(${JSON.stringify(juego)}); actualizarContadorCarrito(); renderCarritoFlotante(); mostrarToast("Agregado al carrito")'
+                          style="background: linear-gradient(135deg, #3498db, #2ecc71); border: none; transition: all 0.3s;">
+                    <i class="bi bi-cart-plus-fill me-2"></i>Añadir al carrito - $${juego.precio.toFixed(2)}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <!-- CSS adicional para incluir -->
+          <style>
+            .rating-container {
+              display: flex;
+              align-items: center;
+            }
+            
+            .stars {
+              --percent: calc(var(--rating) / 5 * 100%);
+              display: inline-block;
+              font-size: 1rem;
+              line-height: 1;
+            }
+            
+            .stars::before {
+              content: '★★★★★';
+              letter-spacing: 2px;
+              background: linear-gradient(90deg, #f1c40f var(--percent), #ddd var(--percent));
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+            
+            .game-details-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 1rem;
+            }
+            
+            .detail-item {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+              padding: 0.75rem;
+              background-color: #f8f9fa;
+              border-radius: 10px;
+            }
+            
+            .detail-icon {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.1rem;
+            }
+            
+            .detail-label {
+              font-size: 0.8rem;
+              color: #7f8c8d;
+            }
+            
+            .detail-value {
+              font-weight: 500;
+              color: #2c3e50;
+            }
+            
+            .description-scroll::-webkit-scrollbar {
+              width: 5px;
+            }
+            
+            .description-scroll::-webkit-scrollbar-thumb {
+              background-color: #bdc3c7;
+              border-radius: 10px;
+            }
+            
+            .add-to-cart-btn:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+            }
+          </style>
       </div>`;
   } else {
     contenedor.innerHTML = "<p class='text-danger'>Juego no encontrado.</p>";
