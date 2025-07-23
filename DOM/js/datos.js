@@ -8,6 +8,8 @@ const juegos = [
     consola: 'PS5',
     precio: 69.99,
     imagen: '../../assets/img/juegos/gow-ragnarok.jpg',
+    trailer: "https://www.youtube.com/embed/F3jePdO9_jc",
+    imagenSecundaria: "../../assets/img/juegos/ragnarok-detalle.webp" // opcional
   },
   {
     id: "juego2",
@@ -53,5 +55,7 @@ const juegos = [
     consola: 'PC',
     precio: 59.99,
     imagen: '../../assets/img/juegos/resident-remake.jpg',
+    trailer: "https://www.youtube.com/embed/aBuXWNiyFfk",
+    imagenSecundaria: "../../assets/img/juegos/resident-detalle.webp" // opcional
   }
 ];

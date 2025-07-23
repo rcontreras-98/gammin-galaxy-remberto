@@ -40,21 +40,23 @@
       <div id="detalle-juego" class="row g-5 align-items-start"></div>
     </main>
 
+    <!-- Modal para tráiler -->
     <div class="modal fade" id="modalTrailer" tabindex="-1" aria-labelledby="modalTrailerLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalTrailerLabel">Tráiler de ${juego.nombre}</h5>
+            <h5 class="modal-title" id="modalTrailerLabel" style="color: black;">Tráiler del juego</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
           </div>
-          <div class="modal-body p-0">
+          <div class="modal-body">
             <div class="ratio ratio-16x9">
-              <iframe src="${juego.trailer}" title="Tráiler ${juego.nombre}" allowfullscreen allow="autoplay"></iframe>
+              <iframe id="iframeTrailer" src="" title="Tráiler del juego" allowfullscreen></iframe>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 
 
     <!-- Carrito flotante -->
