@@ -19,6 +19,8 @@ const juegos = [
     consola: 'PC',
     precio: 59.99,
     imagen: '../../assets/img/juegos/elden1.jpg',
+    trailer: "https://www.youtube.com/embed/0JKX13l7UMU",
+    imagenSecundaria: "../../assets/img/juegos/elder-detalle.webp" // opcional
   },
   {
     id: "juego3",
@@ -28,15 +30,19 @@ const juegos = [
     consola: 'PS5',
     precio: 49.99,
     imagen: '../../assets/img/juegos/spider-miles.jpeg',
+    trailer: "https://www.youtube.com/embed/Q3kfF3XNzw8",
+    imagenSecundaria: "../../assets/img/juegos/psiderman-detalle.jpg" // opcional
   },
   {
     id: "juego4",
-    nombre: 'FIFA 24',
+    nombre: 'EAFC 2025',
     descripcion: 'La nueva edición del simulador de fútbol más popular.',
     genero: 'Deportes',
     consola: 'PS4',
     precio: 59.99,
     imagen: '../../assets/img/juegos/eafc-2025.webp',
+    trailer: "https://www.youtube.com/embed/pBM2xyco_Kg",
+    imagenSecundaria: "../../assets/img/juegos/eafc-detalle.jpg" // opcional
   },
   {
     id: "juego5",
