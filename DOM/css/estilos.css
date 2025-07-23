@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght,ELSH@100..900,100&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*================
+--- BASE ---
+*/
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Paleta de colores */
+:root {
+  --rojo-siman: #C8102E;
+  --rojo-siman-oscuro: #ab0823;
+  --gris-oscuro: #333;
+  --gris-2: #908e8e;
+  --gris-claro: #f5f5f5;
+  --blanco: #fff;
+  --dark-color: #001d04;
+  --darck-green: #0c4126;
+}
+
+.html {
+  margin: 0%;
+  padding: 0%;
+}
+
+body {
+  background-image: url("../assets/img/fondo.jpg") !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 99vw;
+  width: 100vw;
+  text-align: center;
+}
+
+.container .header .navbar-brand {
+  color: var(--blanco);
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  transition: 0.5s;
+  transition: all 0.3s ease;
+}
+
+.container .header .navbar-brand:hover {
+  text-shadow: 0.07em 0.07em var(--darck-green);
+  transform: scale(1.2);
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+/*================
+---- FOOTER ----
+================*/
+/* Footer */
+.footer {
+    background: var(--dark-color);
+    color: #fff;
+    padding: 40px 0 0;
+    margin-top: 50px;
+}
+
+.footer .footer-content .footer-social .icon{
+    width: 2.7vw;
+    height: 2.7vw;
+}
+
+.footer-content {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+        
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.footer .footer-content .footer-logo .img-logo{
+    width: 10vw;
+    height: 7vw;
+    border-radius: 0.5rem;
+}
+
+.footer-logo h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #f8f8f8;
+}
+
+.footer-social {
+    margin-top: 2vw;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #555;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #0077b5; /* Color según red social (opcional) */
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    margin-top: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: Var(--dark-color);
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-social, .footer-links {
+        justify-content: center;
+    }
+}
+
+
+/*
+==================== SUSCRIBETE ====================
+*/
+
+
+
+/*
+==================== SUSCRIBETE ====================
+*/
+
+.container .main-container .hero .hero-title{
+    font-size: 3em;
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    color: var(--dark-color);
+    transition: all 0.3s ease;
+}
+
+.container .main-container .hero .hero-title:hover{
+    text-shadow: 0.06em 0.06em var(--rojo-siman);
+    transform: scale(1.1);
+}
+
+.container .main-container .suscribete-container{
+    display: flex;
+    justify-content: center;
+    background-color: var(--gris-claro);
+    margin-top: 8vh;
+    width: 40vw;
+    height: auto;
+    padding: 3em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+}
+
+.container .main-container .suscribete-container .form-container{
+    text-align: left;
+    font-family: Roboto, sans-serif;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60vh;
+    height: auto;
+    gap: 1em;
+}
