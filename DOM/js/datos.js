@@ -7,7 +7,7 @@ const juegos = [
     genero: 'Acción',
     consola: 'PS5',
     precio: 69.99,
-    imagen: './views/home/assets/god.jpeg',
+    imagen: '../../assets/img/juegos/gow-ragnarok.jpg',
   },
   {
     id: "juego2",
@@ -16,7 +16,7 @@ const juegos = [
     genero: 'RPG',
     consola: 'PC',
     precio: 59.99,
-    imagen: '../',
+    imagen: '../../assets/img/juegos/elden1.jpg',
   },
   {
     id: "juego3",
@@ -25,7 +25,7 @@ const juegos = [
     genero: 'Aventura',
     consola: 'PS5',
     precio: 49.99,
-    imagen: './views/home/assets/morales.jpeg',
+    imagen: '../../assets/img/juegos/spider-miles.jpeg',
   },
   {
     id: "juego4",
@@ -34,7 +34,7 @@ const juegos = [
     genero: 'Deportes',
     consola: 'PS4',
     precio: 59.99,
-    imagen: './views/home/assets/fifa24.jpeg',
+    imagen: '../../assets/img/juegos/eafc-2025.webp',
   },
   {
     id: "juego5",
@@ -43,7 +43,7 @@ const juegos = [
     genero: 'Aventura',
     consola: 'Switch',
     precio: 69.99,
-    imagen: './views/home/assets/zelda.jpg',
+    imagen: '../../assets/img/juegos/legend-zelda.jpg',
   },
   {
     id: "juego6",
@@ -52,6 +52,6 @@ const juegos = [
     genero: 'Terror',
     consola: 'PC',
     precio: 59.99,
-    imagen: './views/home/assets/re4.jpg',
+    imagen: '../../assets/img/juegos/resident-remake.jpg',
   }
 ];

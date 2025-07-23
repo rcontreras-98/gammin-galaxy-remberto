@@ -11,16 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (juego) {
     contenedor.innerHTML = `
       <div class="row g-4">
-        <!-- Galería de imágenes -->
-        <div class="col-lg-7">
+        <!-- Carrusel compacto -->
+        <div class="col-lg-6">
           <div class="card border-0 shadow-sm overflow-hidden">
-            <div class="carousel slide" id="galeriaJuego" data-bs-ride="carousel">
-              <div class="carousel-inner ratio ratio-16x9">
+            <div id="galeriaJuego" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" style="aspect-ratio: 3 / 4;">
                 <div class="carousel-item active">
-                  <img src="${juego.imagen}" class="d-block w-100 object-fit-cover" alt="${juego.nombre}">
+                  <img src="${juego.imagen}" class="d-block w-100 h-100 object-fit-cover" alt="${juego.nombre}">
                 </div>
                 <div class="carousel-item">
-                  <img src="${juego.imagen}" class="d-block w-100 object-fit-cover" alt="Gameplay">
+                  <img src="${juego.imagenSecundaria || juego.imagen}" class="d-block w-100 h-100 object-fit-cover" alt="Gameplay">
                 </div>
               </div>
               <button class="carousel-control-prev bg-dark opacity-75" type="button" data-bs-target="#galeriaJuego" data-bs-slide="prev" style="width: 5%">
@@ -32,48 +32,52 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="card-footer bg-white py-2">
               <div class="d-flex justify-content-center">
-                <button type="button" data-bs-target="#galeriaJuego" data-bs-slide-to="0" class="active mx-1 rounded-circle" style="width:12px; height:12px; background-color: #0d6efd;"></button>
-                <button type="button" data-bs-target="#galeriaJuego" data-bs-slide-to="1" class="mx-1 rounded-circle" style="width:12px; height:12px; background-color: #dee2e6;"></button>
+                <button type="button" data-bs-target="#galeriaJuego" data-bs-slide-to="0" class="active mx-1 rounded-circle" style="width:10px; height:10px; background-color: #0d6efd;"></button>
+                <button type="button" data-bs-target="#galeriaJuego" data-bs-slide-to="1" class="mx-1 rounded-circle" style="width:10px; height:10px; background-color: #dee2e6;"></button>
               </div>
             </div>
           </div>
+
+          <!-- Botón para tráiler -->
+          <div class="text-center mt-2">
+            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalTrailer">
+              <i class="bi bi-play-circle-fill me-1"></i> Ver tráiler
+            </button>
+          </div>
         </div>
 
-        <!-- Detalles del juego -->
-        <div class="col-lg-5">
+        <!-- Detalles compactos -->
+        <div class="col-lg-6">
           <div class="card border-0 shadow-sm h-100">
-            <div class="card-body">
-              <h1 class="h2 fw-bold mb-3">${juego.nombre}</h1>
-              
-              <div class="d-flex align-items-center mb-4">
-                <span class="badge bg-success me-2">${juego.genero || "Acción"}</span>
-                <span class="badge bg-info">${juego.plataforma || "PC"}</span>
+            <div class="card-body p-3">
+              <h2 class="h4 fw-bold mb-2">${juego.nombre}</h2>
+
+              <div class="d-flex align-items-center mb-3">
+                <span class="badge bg-success me-2 small">${juego.genero || "Acción"}</span>
+                <span class="badge bg-info small">${juego.plataforma || "PC"}</span>
               </div>
-              
-              <div class="mb-4">
-                <h3 class="h5 text-muted">$${juego.precio.toFixed(2)}</h3>
-                <div class="text-warning mb-2">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
+
+              <div class="mb-3">
+                <h3 class="h6 text-muted mb-1">$${juego.precio.toFixed(2)}</h3>
+                <div class="text-warning small">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
                   <span class="text-muted ms-2">(4.5)</span>
                 </div>
               </div>
-              
-              <p class="lead mb-4">${juego.descripcion}</p>
-              
-              <div class="mb-4">
-                <h3 class="h5 fw-bold mb-3">Detalles</h3>
-                <ul class="list-unstyled">
-                  <li class="mb-2"><i class="bi bi-translate me-2 text-primary"></i> <strong>Idiomas:</strong> Español, Inglés</li>
-                  <li class="mb-2"><i class="bi bi-people-fill me-2 text-primary"></i> <strong>Clasificación:</strong> +12</li>
-                  <li class="mb-2"><i class="bi bi-calendar3 me-2 text-primary"></i> <strong>Lanzamiento:</strong> ${juego.fechaLanzamiento || "2023"}</li>
+
+              <p class="fs-6 mb-3">${juego.descripcion}</p>
+
+              <div class="mb-3">
+                <h3 class="h6 fw-bold mb-2">Detalles</h3>
+                <ul class="list-unstyled small">
+                  <li><i class="bi bi-translate me-2 text-primary"></i><strong>Idiomas:</strong> Español, Inglés</li>
+                  <li><i class="bi bi-people-fill me-2 text-primary"></i><strong>Clasificación:</strong> +12</li>
+                  <li><i class="bi bi-calendar3 me-2 text-primary"></i><strong>Lanzamiento:</strong> ${juego.fechaLanzamiento || "2023"}</li>
                 </ul>
               </div>
-              
-              <button class="btn btn-primary btn-lg w-100 py-3 fw-bold" 
+
+              <button class="btn btn-primary w-100 py-2 fw-bold btn-sm"
                       onclick='agregarAlCarrito(${JSON.stringify(juego)}); actualizarContadorCarrito(); renderCarritoFlotante(); mostrarToast("Agregado al carrito")'>
                 <i class="bi bi-cart-plus-fill me-2"></i>Agregar al carrito
               </button>
